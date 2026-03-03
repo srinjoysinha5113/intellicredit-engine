@@ -1,0 +1,203 @@
+.staggered-menu {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Override specific styles for the menu button */
+.staggered-menu__button {
+  position: relative;
+}
+
+.staggered-menu__button.open {
+  color: var(--primary);
+}
+
+/* Hamburger Menu */
+.staggered-menu__hamburger {
+  width: 24px;
+  height: 20px;
+  position: relative;
+}
+
+.staggered-menu__hamburger span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all 0.25s ease-in-out;
+}
+
+.staggered-menu__hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+.staggered-menu__hamburger span:nth-child(2) {
+  top: 9px;
+}
+
+.staggered-menu__hamburger span:nth-child(3) {
+  top: 18px;
+}
+
+.staggered-menu__button.open .staggered-menu__hamburger span:nth-child(1) {
+  top: 9px;
+  transform: rotate(135deg);
+}
+
+.staggered-menu__button.open .staggered-menu__hamburger span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.staggered-menu__button.open .staggered-menu__hamburger span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-135deg);
+}
+
+/* Logo */
+.staggered-menu__logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* Menu Overlay */
+.staggered-menu__overlay {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+}
+
+.staggered-menu--right .staggered-menu__overlay {
+  right: 0;
+}
+
+.staggered-menu--left .staggered-menu__overlay {
+  left: 0;
+}
+
+.staggered-menu__overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Menu Items */
+.staggered-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.staggered-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+}
+
+.staggered-menu__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.staggered-menu__item:hover::before {
+  opacity: 0.1;
+}
+
+.staggered-menu__item:hover {
+  transform: translateX(2px);
+}
+
+.staggered-menu__item-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 16px;
+}
+
+.staggered-menu__item-text {
+  color: var(--text);
+}
+
+/* Social Items */
+.staggered-menu__social {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.staggered-menu__social-item {
+  padding: 0.5rem 0.75rem;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.staggered-menu__social-item:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.staggered-menu__social-text {
+  color: inherit;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .staggered-menu__overlay {
+    min-width: 180px;
+    padding: 0.75rem;
+  }
+
+  .staggered-menu__item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .staggered-menu__social {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "HR": [
+    { "q": "What is the leave policy?", "a": "Employees can apply for leave through the HR portal. Annual leave is 20 days." },
+    { "q": "What are the working hours?", "a": "Standard working hours are 9 AM to 6 PM, Monday to Friday." },
+    { "q": "How to request a salary advance?", "a": "Submit a request form to HR with justification." }
+  ],
+  "Admin": [
+    { "q": "How to book a meeting room?", "a": "Use the admin portal to check availability and book." },
+    { "q": "Office supplies request?", "a": "Fill out the supplies request form in the admin system." }
+  ],
+  "IT": [
+    { "q": "How to access email?", "a": "Use your company email credentials on Outlook or webmail." },
+    { "q": "Password reset?", "a": "Contact IT support or use the self-service portal." },
+    { "q": "Software installation?", "a": "Raise a ticket with IT department for approval." }
+  ],
+  "Mines": [
+    { "q": "Safety protocols?", "a": "Follow all PPE guidelines and report incidents immediately." },
+    { "q": "Shift schedules?", "a": "Shifts are 8 hours, rotating every week." }
+  ],
+  "CHP": [
+    { "q": "Maintenance procedures?", "a": "Follow standard operating procedures for equipment maintenance." },
+    { "q": "Emergency contacts?", "a": "Dial 911 for emergencies, or contact CHP supervisor." }
+  ]
+}

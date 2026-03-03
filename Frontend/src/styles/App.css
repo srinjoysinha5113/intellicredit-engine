@@ -1,0 +1,17 @@
+.app {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 64px; /* Account for fixed header */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    position: relative;
+    padding-top: 110px;  /* Account for fixed header */
+  }
+}

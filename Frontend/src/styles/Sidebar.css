@@ -1,0 +1,204 @@
+.sidebar {
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  padding: 12px;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar.expanded {
+  width: 220px;
+}
+
+.sidebar.collapsed {
+  width: 64px;
+}
+
+.sidebar-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: var(--radius);
+  padding: 8px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar.collapsed .sidebar-toggle span {
+  transform: rotate(180deg);
+}
+
+.sidebar-back-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 13%;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--text);
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.sidebar-back-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.sidebar.collapsed .sidebar-back-btn {
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.sidebar.collapsed .sidebar-back-btn .label {
+  display: none;
+}
+
+.faq-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 10px;
+  border-radius: var(--radius);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.faq-toggle .arrow {
+  transition: transform 0.3s ease;
+}
+
+.faq-toggle .arrow.rotated {
+  transform: rotate(-180deg);
+}
+
+.sidebar.collapsed .faq-toggle {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.sidebar.collapsed .faq-toggle .label,
+.sidebar.collapsed .faq-toggle .arrow {
+  display: none;
+}
+
+.sidebar.collapsed .faq-toggle span.material-icons {
+  margin: 0;
+}
+
+.sidebar-nav {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.sidebar-nav.open {
+  display: block;
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 4px;
+}
+
+.sidebar-nav button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.sidebar-nav button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Mobile Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px !important;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar.collapsed,
+  .sidebar.expanded {
+    width: 280px !important;
+  }
+
+  /* Show labels on mobile regardless of collapsed state */
+  .sidebar.collapsed .sidebar-back-btn .label,
+  .sidebar.collapsed .faq-toggle .label,
+  .sidebar.collapsed .faq-toggle .arrow {
+    display: inline !important;
+  }
+
+  /* Mobile overlay */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+
+  /* Hide desktop toggle on mobile */
+  .sidebar-toggle {
+    display: none;
+  }
+
+  /* Mobile sidebar adjustments */
+  .sidebar-back-btn {
+    justify-content: flex-start !important;
+    gap: 50px !important;
+    padding: 10px !important;
+  }
+
+  .faq-toggle {
+    justify-content: space-between !important;
+    gap: 31% !important;
+    padding: 12px 10px !important;
+  }
+
+  .sidebar-nav button {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+}

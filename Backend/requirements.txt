@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+ollama
+pypdf
+faiss-cpu
+python-multipart
+pydantic
+cryptography>=3.4.8
+python-pptx
+openpyxl
+pandas
+pytesseract
+pillow
+pdf2image
+pycryptodome
+python-dotenv
